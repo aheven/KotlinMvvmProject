@@ -5,6 +5,7 @@ plugins {
     id("kotlin-android")
 }
 
+@Suppress("UnstableApiUsage")
 android {
     compileSdk = 32
 

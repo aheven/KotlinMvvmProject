@@ -2,12 +2,34 @@ import com.android.build.gradle.internal.api.ApkVariantOutputImpl
 import heven.holt.plugin.Android
 import heven.holt.plugin.AndroidX
 import heven.holt.plugin.Depends
+import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 
 plugins {
     id("com.android.application")
     id("kotlin-android")
+    //检测当前工程依赖项是否更新：.\gradlew -q dependencyUpdate，输出文件夹：build/dependencyUpdates/report.json
+    id("com.github.ben-manes.versions") version "0.42.0"
 }
 
+fun String.isNonStable(): Boolean {
+    val stableKeyword = listOf("RELEASE", "FINAL", "GA").any { toUpperCase().contains(it) }
+    val regex = "^[0-9,.v-]+(-r)?$".toRegex()
+    val isStable = stableKeyword || regex.matches(this)
+    return isStable.not()
+}
+
+tasks.withType<DependencyUpdatesTask> {
+    rejectVersionIf {
+        candidate.version.isNonStable()
+    }
+
+    checkForGradleUpdate = true
+    outputFormatter = "json"
+    outputDir = "build/dependencyUpdates"
+    reportfileName = "report"
+}
+
+@Suppress("UnstableApiUsage")
 android {
     compileSdk = BuildConfig.compileSdkVersion
 

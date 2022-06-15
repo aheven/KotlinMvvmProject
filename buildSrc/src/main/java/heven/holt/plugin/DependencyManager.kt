@@ -8,6 +8,7 @@ object Versions {
     const val junit = "4.13.2"
     const val test_junit = "1.1.3"
     const val test_espresso = "3.4.0"
+    const val fragment_ktx = "1.3.6"
 }
 
 object AndroidX {
@@ -16,6 +17,7 @@ object AndroidX {
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
     const val test_junit = "androidx.test.ext:junit:${Versions.test_junit}"
     const val test_espresso = "androidx.test.espresso:espresso-core:${Versions.test_espresso}"
+    const val fragment_ktx = "androidx.fragment:fragment-ktx:${Versions.fragment_ktx}"
 }
 
 object Android {

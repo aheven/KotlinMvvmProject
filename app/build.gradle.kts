@@ -1,7 +1,4 @@
 import com.android.build.gradle.internal.api.ApkVariantOutputImpl
-import heven.holt.plugin.Android
-import heven.holt.plugin.AndroidX
-import heven.holt.plugin.Depends
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 
 plugins {
@@ -29,8 +26,7 @@ tasks.withType<DependencyUpdatesTask> {
     reportfileName = "report"
 }
 
-@Suppress("UnstableApiUsage")
-android {
+@Suppress("UnstableApiUsage") android {
     compileSdk = BuildConfig.compileSdkVersion
 
     defaultConfig {
@@ -48,6 +44,11 @@ android {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
+    }
+
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
     }
 
     compileOptions {
@@ -71,12 +72,5 @@ android.applicationVariants.all {
 }
 
 dependencies {
-    implementation(AndroidX.core_ktx)
-    implementation(AndroidX.appcompat)
-    implementation(Android.meteria)
-    implementation(AndroidX.constraintlayout)
-
-    testImplementation(Depends.junit)
-    androidTestImplementation(AndroidX.test_junit)
-    androidTestImplementation(AndroidX.test_espresso)
+    implementation(project(path = ":library"))
 }

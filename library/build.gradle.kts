@@ -1,20 +1,20 @@
-import heven.holt.plugin.AndroidX
+@file:Suppress("UnstableApiUsage")
+
+import heven.holt.plugin.*
 
 plugins {
     id("com.android.library")
     id("kotlin-android")
 }
 
-@Suppress("UnstableApiUsage")
 android {
-    compileSdk = 32
+    compileSdk = BuildConfig.compileSdkVersion
 
     defaultConfig {
-        minSdk = 21
-        targetSdk = 32
+        minSdk = BuildConfig.minSdkVersion
+        targetSdk = BuildConfig.targetSdkVersion
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFile("consumer-rules.pro")
     }
 
     buildTypes {
@@ -22,6 +22,11 @@ android {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
+    }
+
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
     }
 
     compileOptions {
@@ -35,5 +40,14 @@ android {
 }
 
 dependencies {
-    implementation(AndroidX.constraintlayout)
+    api(AndroidX.core_ktx)
+    api(AndroidX.appcompat)
+    api(Android.meteria)
+    api(AndroidX.constraintlayout)
+    api(AndroidX.fragment_ktx)
+
+    testApi(Depends.junit)
+    androidTestApi(AndroidX.test_junit)
+    androidTestApi(AndroidX.test_espresso)
 }
+

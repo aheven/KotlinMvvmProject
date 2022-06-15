@@ -1,11 +1,11 @@
 package heven.holt.mvvm
 
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import heven.holt.mvvm.ui.ViewBindingKtxActivity
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class MainActivity : AppCompatActivity(R.layout.activity_main) {
+    fun intentViewBindingKtx(view: View) {
+        ViewBindingKtxActivity.startAtc(view.context)
     }
 }

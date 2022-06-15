@@ -9,4 +9,4 @@ dependencyResolutionManagement {
 rootProject.name = "KotlinMvvmProject"
 
 include(":app")
-include(":loadingstateview")
+include(":library")

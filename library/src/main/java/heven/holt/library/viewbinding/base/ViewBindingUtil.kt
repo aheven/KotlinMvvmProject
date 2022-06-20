@@ -8,10 +8,19 @@ import androidx.activity.ComponentActivity
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import heven.holt.library.ui.base.BaseBindingActivity
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.ParameterizedType
 
 object ViewBindingUtil {
+    fun <VB : ViewBinding> inflateWithGeneric(
+        genericOwner: BaseBindingActivity<VB>,
+        layoutInflater: LayoutInflater
+    ) =
+        withGenericBindingClass(genericOwner) { clazz ->
+            clazz.getMethod("inflate", LayoutInflater::class.java).invoke(null, layoutInflater) as VB
+        }.withLifecycleOwner(genericOwner)
+
     @JvmStatic
     fun <VB : ViewBinding> inflateWithGeneric(genericOwner: Any, parent: ViewGroup): VB =
         inflateWithGeneric(genericOwner, LayoutInflater.from(parent.context), parent, false)
@@ -22,7 +31,7 @@ object ViewBindingUtil {
         layoutInflater: LayoutInflater,
         parent: ViewGroup?,
         attachToParent: Boolean
-    ): VB = withGenericBindingClass<VB>(genericOwner) { clazz ->
+    ) = withGenericBindingClass(genericOwner) { clazz ->
         clazz.getMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java)
             .invoke(null, layoutInflater, parent, attachToParent) as VB
     }.withLifecycleOwner(genericOwner)
@@ -43,8 +52,8 @@ object ViewBindingUtil {
                 genericSuperclass.actualTypeArguments.forEach {
                     try {
                         return block.invoke(it as Class<VB>)
-                    } catch (e: NoSuchMethodException) {
-                    } catch (e: ClassCastException) {
+                    } catch (_: NoSuchMethodException) {
+                    } catch (_: ClassCastException) {
                     } catch (e: InvocationTargetException) {
                         var tagException: Throwable? = e
                         while (tagException is InvocationTargetException) {

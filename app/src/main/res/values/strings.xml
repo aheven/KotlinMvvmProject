@@ -5,4 +5,23 @@
     <string name="tab_message">Message</string>
     <string name="tab_me">Me</string>
     <string name="show_loading_dialog">Show loading dialog</string>
+
+    <string name="initializing">Initializing!</string>
+    <string name="get_sample_second_startup_from_cache_if_exist">Get SampleSecondStartup From Cache If Exist</string>
+    <string name="get_startup_from_cache_if_exit">Get Startup From Cache If Exist</string>
+    <string name="clear_sample_second_startup_cache">Clear SampleSecondStartup Cache</string>
+    <string name="sample_second_startup_not_initialized">SampleSecondStartup not initialized, being initializing…</string>
+    <string name="sample_second_startup_result_from_cache">Result Of SampleSecondStartup From Cache: %b</string>
+    <string name="sample_startup_not_initialized">Sample Startup not initialized, being initializing…</string>
+    <string name="clear_cache">Clear Cache</string>
+    <string name="clear_cache_success">Clear Cache Success</string>
+    <string name="more">More</string>
+    <string name="sync_and_sync">Sync And Sync</string>
+    <string name="sync_and_async">Sync And Async</string>
+    <string name="async_and_sync">Async And Sync</string>
+    <string name="async_and_async">Async And Async</string>
+    <string name="async_and_async_await_main_thread">Async And Async Await Main Thread</string>
+    <string name="manual_dispatch">Manual Dispatch</string>
+    <string name="thread_priority">Thread Priority</string>
+    <string name="multiple_process">Multiple Process</string>
 </resources>

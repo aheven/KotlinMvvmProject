@@ -7,12 +7,19 @@
         tools:context=".MainActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
         <Button
                 android:onClick="intentViewBindingKtx"
                 android:text="View_Binding_Ktx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <Button
+                android:onClick="intentStartupManager"
+                android:text="Start up manager"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 

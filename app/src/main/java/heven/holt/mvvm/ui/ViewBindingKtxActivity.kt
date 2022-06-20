@@ -3,31 +3,28 @@ package heven.holt.mvvm.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
+import heven.holt.library.ui.base.BaseBindingActivity
+import heven.holt.library.viewbinding.ktx.doOnCustomTabSelected
+import heven.holt.library.viewbinding.ktx.setCustomView
+import heven.holt.library.viewbinding.ktx.updateCustomTab
 import heven.holt.mvvm.R
 import heven.holt.mvvm.databinding.ActivityViewBindingKtxBinding
 import heven.holt.mvvm.databinding.LayoutViewBindingBottomTabBinding
 import heven.holt.mvvm.fragment.ViewBindingHomeFragment
 import heven.holt.mvvm.fragment.ViewBindingMeFragment
 import heven.holt.mvvm.fragment.ViewBindingMessageFragment
-import heven.holt.library.viewbinding.ktx.doOnCustomTabSelected
-import heven.holt.library.viewbinding.ktx.setCustomView
-import heven.holt.library.viewbinding.ktx.updateCustomTab
-import heven.holt.library.viewbinding.nonreflection.binding
 
-class ViewBindingKtxActivity : AppCompatActivity() {
+class ViewBindingKtxActivity : BaseBindingActivity<ActivityViewBindingKtxBinding>() {
     companion object {
         fun startAtc(context: Context) {
             val intent = Intent(context, ViewBindingKtxActivity::class.java)
             context.startActivity(intent)
         }
     }
-
-    private val binding by binding(ActivityViewBindingKtxBinding::inflate)
 
     private val tabs: List<CustomTab> by lazy {
         listOf(

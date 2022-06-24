@@ -2,7 +2,6 @@ package heven.holt.mvvm.ui
 
 import android.app.Service
 import android.content.ComponentName
-import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
 import android.os.Bundle
@@ -19,6 +18,8 @@ import heven.holt.library.android_startup.manager.StartupCacheManager
 import heven.holt.library.android_startup.model.CostTimesModel
 import heven.holt.library.android_startup.model.LoggerLevel
 import heven.holt.library.android_startup.model.StartupConfig
+import heven.holt.library.longan.safeIntentExtras
+import heven.holt.library.longan.startActivity
 import heven.holt.library.ui.base.BaseBindingActivity
 import heven.holt.mvvm.R
 import heven.holt.mvvm.aidl.IMultipleProcessServiceInterface
@@ -32,12 +33,12 @@ import heven.holt.mvvm.startup.service.MultipleProcessService
 
 class StartupCommonActivity : BaseBindingActivity<ActivityStartupCommonBinding>() {
     companion object {
-        fun startAtc(context: Context, @IdRes id: Int) {
-            val intent = Intent(context, StartupCommonActivity::class.java)
-            intent.putExtra("id", id)
-            context.startActivity(intent)
+        fun startAtc(@IdRes id: Int) {
+            startActivity<StartupCommonActivity>("id" to id)
         }
     }
+
+    private val id by safeIntentExtras<Int>("id")
 
     private var mMultipleProcessService: IMultipleProcessServiceInterface? = null
 
@@ -71,7 +72,7 @@ class StartupCommonActivity : BaseBindingActivity<ActivityStartupCommonBinding>(
         binding.content.text = getString(R.string.sample_startup_not_initialized)
 
         val list = mutableListOf<AndroidStartup<*>>()
-        when (intent.getIntExtra("id", -1)) {
+        when (id) {
             R.id.sync_and_sync -> {
                 list.add(SampleSyncOneStartup())
                 list.add(SampleSyncTwoStartup())

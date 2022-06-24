@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="heven.holt.mvvm">
 
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -25,24 +26,9 @@
         <activity android:name=".ui.StartupActivity"/>
         <activity android:name=".ui.StartupMoreActivity"/>
         <activity android:name=".ui.StartupCommonActivity"/>
+        <activity android:name=".ui.LonganActivity"/>
+        <activity android:name=".ui.LonganResultActivity"/>
 
-        <service
-                android:name=".startup.service.MultipleProcessService"
-                android:process=":multiple.process.service"/>
-
-        <provider
-                android:authorities="${applicationId}.android_startup"
-                android:name="heven.holt.library.android_startup.provider.StartupProvider"
-                android:exported="false">
-
-            <meta-data
-                    android:name="heven.holt.mvvm.startup.SampleStartupProviderConfig"
-                    android:value="android.startup.provider.config"/>
-
-            <meta-data
-                    android:name="heven.holt.mvvm.startup.SampleFourthStartup"
-                    android:value="android.startup" />
-        </provider>
     </application>
 
 </manifest>

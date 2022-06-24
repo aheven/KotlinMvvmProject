@@ -1,5 +1,6 @@
 import com.android.build.gradle.internal.api.ApkVariantOutputImpl
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
+import heven.holt.plugin.*
 
 plugins {
     id("com.android.application")
@@ -52,6 +53,7 @@ tasks.withType<DependencyUpdatesTask> {
     }
 
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -73,4 +75,5 @@ android.applicationVariants.all {
 
 dependencies {
     implementation(project(path = ":library"))
+    coreLibraryDesugaring(Depends.desugar_jdk)
 }

@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="heven.holt.library">
+<manifest package="heven.holt.library"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <application>
+        <provider
+                android:authorities="${applicationId}.android_startup"
+                android:name="heven.holt.library.android_startup.provider.StartupProvider"
+                android:exported="false">
+
+            <meta-data
+                    android:name="heven.holt.mvvm.startup.SampleStartupProviderConfig"
+                    android:value="android.startup.provider.config"/>
+
+            <meta-data
+                    android:name="heven.holt.library.longan.AppInitializer"
+                    android:value="android.startup"/>
+
+            <meta-data
+                    android:name="heven.holt.library.loadingstateview.delegate.LoadingStateViewInitializer"
+                    android:value="android.startup"/>
+        </provider>
+    </application>
 </manifest>

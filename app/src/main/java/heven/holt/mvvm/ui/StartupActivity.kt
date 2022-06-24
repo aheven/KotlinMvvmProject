@@ -1,11 +1,10 @@
 package heven.holt.mvvm.ui
 
-import android.content.Context
-import android.content.Intent
 import android.view.View
 import heven.holt.library.android_startup.StartupManager
 import heven.holt.library.android_startup.manager.StartupCacheManager
 import heven.holt.library.android_startup.model.CostTimesModel
+import heven.holt.library.longan.startActivity
 import heven.holt.library.ui.base.BaseBindingActivity
 import heven.holt.mvvm.R
 import heven.holt.mvvm.databinding.ActivityStartupBinding
@@ -16,9 +15,8 @@ import heven.holt.mvvm.startup.SampleStartupProviderConfig
 class StartupActivity : BaseBindingActivity<ActivityStartupBinding>(),
     SampleStartupProviderConfig.SampleStartupProviderListener {
     companion object {
-        fun startAtc(context: Context) {
-            val intent = Intent(context, StartupActivity::class.java)
-            context.startActivity(intent)
+        fun startAtc() {
+            startActivity<StartupActivity>()
         }
     }
 

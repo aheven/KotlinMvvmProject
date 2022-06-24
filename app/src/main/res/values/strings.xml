@@ -24,4 +24,5 @@
     <string name="manual_dispatch">Manual Dispatch</string>
     <string name="thread_priority">Thread Priority</string>
     <string name="multiple_process">Multiple Process</string>
+    <string name="image_description">image_description</string>
 </resources>

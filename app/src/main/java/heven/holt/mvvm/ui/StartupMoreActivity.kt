@@ -15,6 +15,6 @@ class StartupMoreActivity : BaseBindingActivity<ActivityStartupMoreBinding>() {
     }
 
     fun onClick(view: View) {
-        StartupCommonActivity.startAtc(view.context, view.id)
+        StartupCommonActivity.startAtc(view.id)
     }
 }

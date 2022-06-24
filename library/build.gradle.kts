@@ -30,6 +30,7 @@ android {
     }
 
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -45,6 +46,9 @@ dependencies {
     api(Android.meteria)
     api(AndroidX.constraintlayout)
     api(AndroidX.fragment_ktx)
+
+    coreLibraryDesugaring(Depends.desugar_jdk)
+    implementation(Depends.okio)
 
     testApi(Depends.junit)
     androidTestApi(AndroidX.test_junit)

@@ -9,6 +9,8 @@ object Versions {
     const val test_junit = "1.1.3"
     const val test_espresso = "3.4.0"
     const val fragment_ktx = "1.3.6"
+    const val desugar_jdk = "1.1.5"
+    const val okio = "3.1.0"
 }
 
 object AndroidX {
@@ -26,4 +28,6 @@ object Android {
 
 object Depends {
     const val junit = "junit:junit:${Versions.junit}"
+    const val desugar_jdk = "com.android.tools:desugar_jdk_libs:${Versions.desugar_jdk}"
+    const val okio = "com.squareup.okio:okio:${Versions.okio}"
 }

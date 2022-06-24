@@ -8,13 +8,12 @@ import androidx.activity.ComponentActivity
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import heven.holt.library.ui.base.BaseBindingActivity
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.ParameterizedType
 
 object ViewBindingUtil {
     fun <VB : ViewBinding> inflateWithGeneric(
-        genericOwner: BaseBindingActivity<VB>,
+        genericOwner: Any,
         layoutInflater: LayoutInflater
     ) =
         withGenericBindingClass(genericOwner) { clazz ->

@@ -1,12 +1,11 @@
 package heven.holt.mvvm.ui
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
+import heven.holt.library.longan.startActivity
 import heven.holt.library.ui.base.BaseBindingActivity
 import heven.holt.library.viewbinding.ktx.doOnCustomTabSelected
 import heven.holt.library.viewbinding.ktx.setCustomView
@@ -20,9 +19,8 @@ import heven.holt.mvvm.fragment.ViewBindingMessageFragment
 
 class ViewBindingKtxActivity : BaseBindingActivity<ActivityViewBindingKtxBinding>() {
     companion object {
-        fun startAtc(context: Context) {
-            val intent = Intent(context, ViewBindingKtxActivity::class.java)
-            context.startActivity(intent)
+        fun startAtc() {
+            startActivity<ViewBindingKtxActivity>()
         }
     }
 

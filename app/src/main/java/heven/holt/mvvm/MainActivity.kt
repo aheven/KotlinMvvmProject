@@ -5,11 +5,12 @@ import android.view.View
 import android.widget.Toast
 import heven.holt.library.loadingstateview.NavBtnType
 import heven.holt.library.ui.base.BaseBindingActivity
+import heven.holt.mvvm.databinding.ActivityMainBinding
 import heven.holt.mvvm.loadingstateview.HeadViewDelegate
 import heven.holt.mvvm.loadingstateview.HeadViewDelegate1
-import heven.holt.mvvm.databinding.ActivityMainBinding
 import heven.holt.mvvm.ui.LonganActivity
 import heven.holt.mvvm.ui.StartupActivity
+import heven.holt.mvvm.ui.TrackActivity
 import heven.holt.mvvm.ui.ViewBindingKtxActivity
 
 class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
@@ -33,5 +34,9 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
 
     fun intentLongan(view: View) {
         LonganActivity.startAtc()
+    }
+
+    fun trackNodeTag(view: View) {
+        TrackActivity.startAtc()
     }
 }

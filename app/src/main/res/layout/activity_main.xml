@@ -29,6 +29,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
+        <Button
+                android:onClick="trackNodeTag"
+                android:text="track"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.core.widget.NestedScrollView>

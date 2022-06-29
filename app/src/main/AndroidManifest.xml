@@ -28,6 +28,26 @@
         <activity android:name=".ui.StartupCommonActivity"/>
         <activity android:name=".ui.LonganActivity"/>
         <activity android:name=".ui.LonganResultActivity"/>
+        <activity android:name=".ui.TrackActivity"/>
+        <activity android:name=".ui.TrackSeriesActivity"/>
+        <activity android:name=".ui.TrackDetailsActivity"/>
+        <activity android:name=".ui.TrackSignInActivity"/>
+        <activity android:name=".ui.TrackSignUpActivity"/>
+
+        <provider
+                android:authorities="${applicationId}.android_startup"
+                android:name="heven.holt.library.android_startup.provider.StartupProvider"
+                android:exported="false">
+
+            <meta-data
+                    android:name="heven.holt.mvvm.startup.SampleStartupProviderConfig"
+                    android:value="android.startup.provider.config"/>
+
+            <meta-data
+                    android:name="heven.holt.mvvm.track.TrackInitializer"
+                    android:value="android.startup"/>
+
+        </provider>
 
     </application>
 

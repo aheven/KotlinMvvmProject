@@ -9,4 +9,6 @@
   <item name="tag_last_click_time" type="id" />
   <item name="tag_window_insets_controller" type="id" />
 
+  <item name="tag_track_node" type="id" />
+  <item name="tag_track_thread" type="id" />
 </resources>
